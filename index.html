@@ -1,0 +1,2039 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trắc Nghiệm Định Hướng Nghề Nghiệp - Mật Mã Holland</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #3498db;
+        --primary-dark: #2980b9;
+        --secondary: #2ecc71;
+        --secondary-dark: #27ae60;
+        --accent: #e74c3c;
+        --accent-dark: #c0392b;
+        --yellow: #f1c40f;
+        --yellow-dark: #f39c12;
+        --purple: #9b59b6;
+        --purple-dark: #8e44ad;
+        --teal: #1abc9c;
+        --teal-dark: #16a085;
+        --dark: #2c3e50;
+        --darker: #1a252f;
+        --light: #ecf0f1;
+        --lighter: #f9f9f9;
+        --gray: #95a5a6;
+        --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.15);
+        --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        --transition-fast: all 0.2s ease;
+        --border-radius: 12px;
+        --border-radius-lg: 20px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        color: var(--dark);
+        line-height: 1.6;
+        min-height: 100vh;
+        padding: 20px;
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        padding: 40px 0 20px;
+        animation: fadeIn 1s ease;
+        position: relative;
+      }
+
+      h1 {
+        color: var(--darker);
+        margin-bottom: 15px;
+        font-size: 3rem;
+        font-weight: 700;
+        font-family: "Montserrat", sans-serif;
+        position: relative;
+        display: inline-block;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h1:after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px;
+        height: 5px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 5px;
+      }
+
+      .subtitle {
+        color: var(--dark);
+        font-size: 1.3rem;
+        margin-top: 30px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 400;
+      }
+
+      .card {
+        background: white;
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--shadow);
+        padding: 40px;
+        margin-bottom: 30px;
+        animation: slideUp 0.7s ease;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(
+          90deg,
+          var(--primary),
+          var(--secondary),
+          var(--accent),
+          var(--yellow),
+          var(--purple),
+          var(--teal)
+        );
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .intro-card {
+        text-align: center;
+      }
+
+      .holland-types {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 25px;
+        margin-top: 40px;
+      }
+
+      .type-card {
+        background: white;
+        border-radius: var(--border-radius);
+        padding: 25px;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+        border-left: 5px solid var(--primary);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .type-card:nth-child(2) {
+        border-left-color: var(--secondary);
+      }
+
+      .type-card:nth-child(3) {
+        border-left-color: var(--accent);
+      }
+
+      .type-card:nth-child(4) {
+        border-left-color: var(--yellow);
+      }
+
+      .type-card:nth-child(5) {
+        border-left-color: var(--purple);
+      }
+
+      .type-card:nth-child(6) {
+        border-left-color: var(--teal);
+      }
+
+      .type-card:hover {
+        transform: translateY(-8px) scale(1.02);
+      }
+
+      .type-title {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .type-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        color: white;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+      }
+
+      .type-card:hover .type-icon {
+        transform: rotate(15deg) scale(1.1);
+      }
+
+      .type-card:nth-child(2) .type-icon {
+        background: var(--secondary);
+      }
+
+      .type-card:nth-child(3) .type-icon {
+        background: var(--accent);
+      }
+
+      .type-card:nth-child(4) .type-icon {
+        background: var(--yellow);
+      }
+
+      .type-card:nth-child(5) .type-icon {
+        background: var(--purple);
+      }
+
+      .type-card:nth-child(6) .type-icon {
+        background: var(--teal);
+      }
+
+      .type-name {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--darker);
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .type-code {
+        font-size: 0.9rem;
+        color: var(--gray);
+        margin-top: 3px;
+      }
+
+      .type-description {
+        margin-top: 10px;
+        color: var(--dark);
+        flex-grow: 1;
+      }
+
+      .btn {
+        display: inline-block;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-dark)
+        );
+        color: white;
+        padding: 15px 35px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+        font-family: "Montserrat", sans-serif;
+        font-size: 1rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: var(--transition);
+      }
+
+      .btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn:hover:before {
+        left: 100%;
+      }
+
+      .btn-start {
+        font-size: 1.3rem;
+        padding: 18px 50px;
+        margin-top: 20px;
+        background: linear-gradient(
+          135deg,
+          var(--secondary),
+          var(--secondary-dark)
+        );
+      }
+
+      .quiz-container {
+        display: none;
+      }
+
+      .progress-container {
+        margin-bottom: 30px;
+      }
+
+      .progress-bar {
+        height: 10px;
+        background: var(--light);
+        border-radius: 5px;
+        overflow: hidden;
+        margin-bottom: 10px;
+      }
+
+      .progress {
+        height: 100%;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 5px;
+        width: 0%;
+        transition: width 0.5s ease;
+      }
+
+      .question-counter {
+        text-align: center;
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: var(--dark);
+        font-size: 1.1rem;
+      }
+
+      .question {
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+        text-align: center;
+        color: var(--darker);
+        font-weight: 600;
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.4;
+      }
+
+      .options {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .option {
+        background: var(--lighter);
+        padding: 20px 25px;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: var(--transition);
+        border: 2px solid transparent;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .option:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background: var(--primary);
+        transform: scaleY(0);
+        transition: var(--transition);
+      }
+
+      .option:hover {
+        background: #e8f4fc;
+        transform: translateX(10px);
+      }
+
+      .option:hover:before {
+        transform: scaleY(1);
+      }
+
+      .option.selected {
+        border-color: var(--primary);
+        background: #d6eaf8;
+        transform: translateX(10px);
+        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+      }
+
+      .option.selected:before {
+        transform: scaleY(1);
+      }
+
+      .option-text {
+        margin-left: 15px;
+        font-size: 1.1rem;
+      }
+
+      .option-number {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: var(--light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        color: var(--dark);
+        flex-shrink: 0;
+        transition: var(--transition);
+      }
+
+      .option.selected .option-number {
+        background: var(--primary);
+        color: white;
+      }
+
+      .selection-info {
+        text-align: center;
+        margin: 15px 0;
+        font-size: 1rem;
+        color: var(--dark);
+        font-weight: 500;
+      }
+
+      .navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+      }
+
+      .btn-prev,
+      .btn-next {
+        padding: 12px 30px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .btn-prev {
+        background: linear-gradient(135deg, var(--gray), #7f8c8d);
+      }
+
+      .btn-prev:hover {
+        background: linear-gradient(135deg, #7f8c8d, #6c7a7d);
+      }
+
+      .result-container {
+        display: none;
+        text-align: center;
+        animation: fadeIn 1s ease;
+      }
+
+      .result-title {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: var(--darker);
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .result-subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 40px;
+        color: var(--dark);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .result-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 50px;
+        align-items: start;
+      }
+
+      .result-chart-container {
+        background: white;
+        border-radius: var(--border-radius-lg);
+        padding: 30px;
+        box-shadow: var(--shadow);
+      }
+
+      .result-chart {
+        height: 300px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-around;
+        margin-top: 20px;
+      }
+
+      .chart-bar {
+        width: 50px;
+        background: var(--primary);
+        border-radius: 5px 5px 0 0;
+        position: relative;
+        transition: height 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .chart-bar:nth-child(2) {
+        background: var(--secondary);
+      }
+
+      .chart-bar:nth-child(3) {
+        background: var(--accent);
+      }
+
+      .chart-bar:nth-child(4) {
+        background: var(--yellow);
+      }
+
+      .chart-bar:nth-child(5) {
+        background: var(--purple);
+      }
+
+      .chart-bar:nth-child(6) {
+        background: var(--teal);
+      }
+
+      .chart-label {
+        position: absolute;
+        bottom: -30px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      .chart-value {
+        position: absolute;
+        top: -30px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--darker);
+      }
+
+      .result-details {
+        background: white;
+        border-radius: var(--border-radius-lg);
+        padding: 30px;
+        box-shadow: var(--shadow);
+        text-align: left;
+      }
+
+      .result-types {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .result-type {
+        padding: 20px;
+        border-radius: var(--border-radius);
+        background: var(--lighter);
+        transition: var(--transition);
+        border-left: 5px solid var(--primary);
+      }
+
+      .result-type:nth-child(2) {
+        border-left-color: var(--secondary);
+      }
+
+      .result-type:nth-child(3) {
+        border-left-color: var(--accent);
+      }
+
+      .result-type:nth-child(4) {
+        border-left-color: var(--yellow);
+      }
+
+      .result-type:nth-child(5) {
+        border-left-color: var(--purple);
+      }
+
+      .result-type:nth-child(6) {
+        border-left-color: var(--teal);
+      }
+
+      .result-type:hover {
+        transform: translateX(5px);
+      }
+
+      .result-type-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .result-type-name {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--darker);
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .result-type-score {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .result-type-description {
+        color: var(--dark);
+        font-size: 0.95rem;
+      }
+
+      .career-suggestions {
+        margin-top: 50px;
+      }
+
+      .career-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .career-card {
+        background: white;
+        border-radius: var(--border-radius);
+        padding: 25px;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        text-align: center;
+        border-top: 5px solid var(--primary);
+      }
+
+      .career-card:nth-child(2) {
+        border-top-color: var(--secondary);
+      }
+
+      .career-card:nth-child(3) {
+        border-top-color: var(--accent);
+      }
+
+      .career-card:nth-child(4) {
+        border-top-color: var(--yellow);
+      }
+
+      .career-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .career-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        color: var(--primary);
+      }
+
+      .career-card:nth-child(2) .career-icon {
+        color: var(--secondary);
+      }
+
+      .career-card:nth-child(3) .career-icon {
+        color: var(--accent);
+      }
+
+      .career-card:nth-child(4) .career-icon {
+        color: var(--yellow);
+      }
+
+      .career-name {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--darker);
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .career-description {
+        color: var(--dark);
+        font-size: 0.9rem;
+      }
+
+      footer {
+        background: linear-gradient(135deg, #0d2b50 0%, #1a3a6b 100%);
+        color: white;
+        padding: 40px 0 20px;
+        margin-top: 80px;
+
+        width: 100vw; /* ✅ Tràn toàn bộ chiều ngang viewport */
+        border-radius: 10px; /* ✅ Không bo góc để gradient chạm đáy */
+        text-align: center;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw; /* ✅ Căn lại giữa cho khớp layout */
+        margin-right: -50vw;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+        padding: 0 20px;
+      }
+
+      .footer-section {
+        flex: 1;
+        min-width: 250px;
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      .footer-section h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        position: relative;
+        display: inline-block;
+      }
+
+      .footer-section h3:after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: var(--secondary);
+      }
+
+      .footer-section p {
+        margin-bottom: 10px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.95rem;
+      }
+
+      .footer-section ul {
+        list-style: none;
+      }
+
+      .footer-section ul li {
+        margin-bottom: 8px;
+      }
+
+      .footer-section ul li a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: var(--transition-fast);
+      }
+
+      .footer-section ul li a:hover {
+        color: var(--secondary);
+        padding-left: 5px;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 15px;
+        margin-top: 15px;
+      }
+
+      .social-icons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        transition: var(--transition);
+      }
+
+      .social-icons a:hover {
+        background: var(--secondary);
+        transform: translateY(-5px);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @media (max-width: 992px) {
+        .result-content {
+          grid-template-columns: 1fr;
+        }
+
+        .holland-types {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-content {
+          flex-direction: column;
+        }
+
+        .footer-section {
+          text-align: center;
+        }
+
+        .footer-section h3:after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        .card {
+          padding: 25px;
+        }
+
+        .question {
+          font-size: 1.3rem;
+        }
+
+        .chart-bar {
+          width: 35px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        .subtitle {
+          font-size: 1.1rem;
+        }
+
+        .btn-start {
+          font-size: 1.1rem;
+          padding: 15px 30px;
+        }
+
+        .option {
+          padding: 15px 20px;
+        }
+
+        .option-text {
+          font-size: 1rem;
+        }
+
+        .navigation {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .btn-prev,
+        .btn-next {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Trắc Nghiệm Định Hướng Nghề Nghiệp</h1>
+        <p class="subtitle">
+          Khám phá nghề nghiệp phù hợp với tính cách của bạn thông qua mô hình
+          Mật Mã Holland - 20 câu hỏi chuyên sâu giúp bạn hiểu rõ bản thân
+        </p>
+      </header>
+
+      <div class="card intro-card" id="intro">
+        <h2>Mật Mã Holland là gì?</h2>
+        <p>
+          Mô hình Holland (RIASEC) phân loại con người thành 6 nhóm tính cách
+          nghề nghiệp chính. Mỗi người thường là sự kết hợp của nhiều nhóm,
+          nhưng có một số nhóm nổi trội hơn. Trắc nghiệm này gồm 20 câu hỏi giúp
+          xác định nhóm tính cách phù hợp nhất với bạn.
+        </p>
+
+        <div class="holland-types">
+          <div class="type-card">
+            <div class="type-title">
+              <div class="type-icon"><i class="fas fa-calculator"></i></div>
+              <div>
+                <div class="type-name">Nghiệp vụ</div>
+                <div class="type-code">(Conventional - C)</div>
+              </div>
+            </div>
+            <div class="type-description">
+              <p>
+                Thích làm việc với dữ liệu, con số, có khả năng làm việc văn
+                phòng, thống kê; thực hiện các công việc đòi hỏi chi tiết, tỉ
+                mỉ, cần thận hoặc làm theo hướng dẫn của người khác.
+              </p>
+            </div>
+          </div>
+
+          <div class="type-card">
+            <div class="type-title">
+              <div class="type-icon"><i class="fas fa-chart-line"></i></div>
+              <div>
+                <div class="type-name">Kinh doanh</div>
+                <div class="type-code">(Enterprising - E)</div>
+              </div>
+            </div>
+            <div class="type-description">
+              <p>
+                Thích làm việc với những người khác, có khả năng tác động thuyết
+                phục, thể hiện, lãnh đạo hoặc quản lí các mục tiêu của tổ chức,
+                các lợi ích kinh tế.
+              </p>
+            </div>
+          </div>
+
+          <div class="type-card">
+            <div class="type-title">
+              <div class="type-icon">
+                <i class="fas fa-hand-holding-heart"></i>
+              </div>
+              <div>
+                <div class="type-name">Xã hội</div>
+                <div class="type-code">(Social - S)</div>
+              </div>
+            </div>
+            <div class="type-description">
+              <p>
+                Thích làm việc cung cấp hoặc làm sáng tổ thông tin, thích giúp
+                đỡ, huấn luyện, chữa trị hoặc chăm sóc sức khỏe cho người khác;
+                có khả năng về ngôn ngữ.
+              </p>
+            </div>
+          </div>
+
+          <div class="type-card">
+            <div class="type-title">
+              <div class="type-icon"><i class="fas fa-tools"></i></div>
+              <div>
+                <div class="type-name">Kỹ thuật</div>
+                <div class="type-code">(Realistic - R)</div>
+              </div>
+            </div>
+            <div class="type-description">
+              <p>
+                Thích làm với những vật cụ thể, máy móc, dụng cụ, cây cối, con
+                vật, hoặc các hoạt động ngoài trời.
+              </p>
+            </div>
+          </div>
+
+          <div class="type-card">
+            <div class="type-title">
+              <div class="type-icon"><i class="fas fa-search"></i></div>
+              <div>
+                <div class="type-name">Nghiên cứu</div>
+                <div class="type-code">(Investigative - I)</div>
+              </div>
+            </div>
+            <div class="type-description">
+              <p>
+                Thích quan sát, tìm tòi, khám phá, học hỏi, điều tra, phân tích,
+                đánh giá hoặc giải quyết vấn đề.
+              </p>
+            </div>
+          </div>
+
+          <div class="type-card">
+            <div class="type-title">
+              <div class="type-icon"><i class="fas fa-palette"></i></div>
+              <div>
+                <div class="type-name">Nghệ thuật</div>
+                <div class="type-code">(Artistic - A)</div>
+              </div>
+            </div>
+            <div class="type-description">
+              <p>
+                Có khả năng nghệ thuật, sáng tác, trực giác và thích làm việc
+                trong các tình huống không có kế hoạch trước như dùng trí tưởng
+                tượng và sáng tác.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-start" id="startBtn">
+          <i class="fas fa-play-circle"></i> Bắt Đầu Trắc Nghiệm
+        </button>
+      </div>
+
+      <div class="card quiz-container" id="quiz">
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+          </div>
+          <div class="question-counter">
+            Câu hỏi <span id="currentQuestion">1</span>/<span
+              id="totalQuestions"
+              >20</span
+            >
+          </div>
+        </div>
+        <div class="question" id="question">
+          Bạn thích làm công việc gì nhất?
+        </div>
+        <div class="selection-info" id="selectionInfo">
+          Bạn có thể chọn tối đa 3 câu trả lời. Đã chọn:
+          <span id="selectedCount">0</span>/3
+        </div>
+        <div class="options" id="options">
+          <!-- Options will be populated by JavaScript -->
+        </div>
+        <div class="navigation">
+          <button class="btn btn-prev" id="prevBtn" disabled>
+            <i class="fas fa-arrow-left"></i> Câu trước
+          </button>
+          <button class="btn btn-next" id="nextBtn">
+            Câu tiếp theo <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card result-container" id="result">
+        <h2 class="result-title">Kết Quả Trắc Nghiệm Của Bạn</h2>
+        <p class="result-subtitle">
+          Dựa trên 20 câu trả lời của bạn, đây là phân tích chi tiết về nhóm
+          tính cách nghề nghiệp của bạn theo mô hình Holland
+        </p>
+
+        <div class="result-content">
+          <div class="result-chart-container">
+            <h3>Biểu Đồ Điểm Số Các Nhóm Tính Cách</h3>
+            <div class="result-chart" id="resultChart">
+              <!-- Chart will be populated by JavaScript -->
+            </div>
+          </div>
+
+          <div class="result-details">
+            <h3>Phân Tích Chi Tiết</h3>
+            <div class="result-types" id="resultTypes">
+              <!-- Result types will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+
+        <div class="career-suggestions">
+          <h3>Gợi Ý Nghề Nghiệp Phù Hợp</h3>
+          <div class="career-grid" id="careerSuggestions">
+            <!-- Career suggestions will be populated by JavaScript -->
+          </div>
+        </div>
+
+        <button class="btn" id="restartBtn">
+          <i class="fas fa-redo"></i> Làm Lại Trắc Nghiệm
+        </button>
+      </div>
+
+      <footer>
+        <div class="footer-bottom">
+          <p class="footer-text">Tất cả quyền được bảo lưu</p>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // Questions data - 20 questions
+      const questions = [
+        {
+          question: "Bạn thích làm công việc gì nhất?",
+          options: [
+            {
+              text: "Làm việc với dữ liệu, con số và thông tin",
+              type: "conventional",
+            },
+            {
+              text: "Lãnh đạo, thuyết phục và quản lý người khác",
+              type: "enterprising",
+            },
+            {
+              text: "Giúp đỡ, dạy học hoặc chăm sóc người khác",
+              type: "social",
+            },
+            {
+              text: "Sửa chữa, lắp ráp hoặc vận hành máy móc",
+              type: "realistic",
+            },
+            {
+              text: "Nghiên cứu, phân tích và giải quyết vấn đề",
+              type: "investigative",
+            },
+            {
+              text: "Sáng tạo, thiết kế và thể hiện ý tưởng",
+              type: "artistic",
+            },
+          ],
+        },
+        {
+          question: "Môi trường làm việc nào hấp dẫn bạn nhất?",
+          options: [
+            { text: "Văn phòng có tổ chức, quy củ", type: "conventional" },
+            {
+              text: "Môi trường cạnh tranh, nhiều cơ hội thăng tiến",
+              type: "enterprising",
+            },
+            {
+              text: "Nơi có thể giao tiếp và hợp tác với nhiều người",
+              type: "social",
+            },
+            {
+              text: "Ngoài trời hoặc nơi có nhiều công cụ, thiết bị",
+              type: "realistic",
+            },
+            { text: "Phòng thí nghiệm hoặc thư viện", type: "investigative" },
+            {
+              text: "Studio sáng tạo hoặc không gian nghệ thuật",
+              type: "artistic",
+            },
+          ],
+        },
+        {
+          question: "Kỹ năng nào mô tả đúng nhất về bạn?",
+          options: [
+            {
+              text: "Tổ chức, sắp xếp và chú ý đến chi tiết",
+              type: "conventional",
+            },
+            {
+              text: "Thuyết phục, đàm phán và ra quyết định",
+              type: "enterprising",
+            },
+            { text: "Lắng nghe, hợp tác và giảng dạy", type: "social" },
+            {
+              text: "Sửa chữa, xây dựng và vận hành máy móc",
+              type: "realistic",
+            },
+            {
+              text: "Phân tích, nghiên cứu và tư duy logic",
+              type: "investigative",
+            },
+            {
+              text: "Sáng tạo, thiết kế và biểu đạt ý tưởng",
+              type: "artistic",
+            },
+          ],
+        },
+        {
+          question: "Bạn thích học môn nào nhất ở trường?",
+          options: [
+            { text: "Toán học, kế toán hoặc tin học", type: "conventional" },
+            { text: "Kinh tế, quản trị hoặc marketing", type: "enterprising" },
+            { text: "Tâm lý học, xã hội học hoặc giáo dục", type: "social" },
+            { text: "Công nghệ, kỹ thuật hoặc nông nghiệp", type: "realistic" },
+            { text: "Khoa học, nghiên cứu hoặc y học", type: "investigative" },
+            { text: "Nghệ thuật, âm nhạc hoặc văn học", type: "artistic" },
+          ],
+        },
+        {
+          question: "Giá trị nào quan trọng nhất với bạn trong công việc?",
+          options: [
+            { text: "Ổn định, an toàn và trật tự", type: "conventional" },
+            {
+              text: "Quyền lực, thành công và thu nhập cao",
+              type: "enterprising",
+            },
+            {
+              text: "Giúp đỡ người khác và cống hiến cho xã hội",
+              type: "social",
+            },
+            { text: "Thực tế, hữu ích và kết quả cụ thể", type: "realistic" },
+            { text: "Kiến thức, sự thật và khám phá", type: "investigative" },
+            { text: "Sáng tạo, tự do và biểu đạt cá nhân", type: "artistic" },
+          ],
+        },
+        {
+          question: "Bạn giải quyết vấn đề như thế nào?",
+          options: [
+            {
+              text: "Lập kế hoạch chi tiết và tuân thủ quy trình",
+              type: "conventional",
+            },
+            {
+              text: "Tìm cách thuyết phục người khác hỗ trợ",
+              type: "enterprising",
+            },
+            { text: "Hỏi ý kiến và hợp tác với người khác", type: "social" },
+            {
+              text: "Thử nghiệm trực tiếp với công cụ, vật liệu",
+              type: "realistic",
+            },
+            {
+              text: "Phân tích dữ liệu và nghiên cứu kỹ lưỡng",
+              type: "investigative",
+            },
+            { text: "Tưởng tượng các giải pháp sáng tạo", type: "artistic" },
+          ],
+        },
+        {
+          question: "Hoạt động giải trí yêu thích của bạn là gì?",
+          options: [
+            {
+              text: "Sắp xếp, phân loại hoặc lập danh sách",
+              type: "conventional",
+            },
+            {
+              text: "Tham gia các cuộc thi hoặc sự kiện networking",
+              type: "enterprising",
+            },
+            {
+              text: "Tham gia hoạt động tình nguyện hoặc cộng đồng",
+              type: "social",
+            },
+            { text: "Sửa chữa, xây dựng hoặc làm vườn", type: "realistic" },
+            { text: "Đọc sách khoa học hoặc giải đố", type: "investigative" },
+            { text: "Vẽ, chụp ảnh hoặc sáng tác", type: "artistic" },
+          ],
+        },
+        {
+          question: "Bạn muốn được người khác nhìn nhận như thế nào?",
+          options: [
+            {
+              text: "Có tổ chức, đáng tin cậy và hiệu quả",
+              type: "conventional",
+            },
+            {
+              text: "Tham vọng, năng động và có ảnh hưởng",
+              type: "enterprising",
+            },
+            { text: "Thân thiện, hữu ích và đáng tin cậy", type: "social" },
+            { text: "Thực tế, tự lập và có kỹ năng", type: "realistic" },
+            { text: "Thông minh, sâu sắc và am hiểu", type: "investigative" },
+            { text: "Sáng tạo, độc đáo và nhạy cảm", type: "artistic" },
+          ],
+        },
+        {
+          question: "Điều gì thúc đẩy bạn làm việc chăm chỉ?",
+          options: [
+            {
+              text: "Hoàn thành công việc đúng hạn và chính xác",
+              type: "conventional",
+            },
+            { text: "Đạt được vị trí cao và công nhận", type: "enterprising" },
+            { text: "Giúp đỡ người khác và tạo sự khác biệt", type: "social" },
+            { text: "Tạo ra sản phẩm hữu hình và hữu ích", type: "realistic" },
+            {
+              text: "Khám phá điều mới mẻ và giải mã bí ẩn",
+              type: "investigative",
+            },
+            { text: "Thể hiện bản thân và tạo ra cái đẹp", type: "artistic" },
+          ],
+        },
+        {
+          question: "Bạn cảm thấy hài lòng nhất khi nào?",
+          options: [
+            {
+              text: "Mọi thứ được sắp xếp ngăn nắp và có trật tự",
+              type: "conventional",
+            },
+            {
+              text: "Dẫn dắt nhóm thành công và đạt mục tiêu",
+              type: "enterprising",
+            },
+            { text: "Giúp đỡ được ai đó vượt qua khó khăn", type: "social" },
+            {
+              text: "Sửa chữa hoặc tạo ra thứ gì đó hữu ích",
+              type: "realistic",
+            },
+            {
+              text: "Tìm ra giải pháp cho vấn đề phức tạp",
+              type: "investigative",
+            },
+            { text: "Tạo ra tác phẩm nghệ thuật độc đáo", type: "artistic" },
+          ],
+        },
+        {
+          question: "Khi làm việc nhóm, bạn thường đảm nhận vai trò gì?",
+          options: [
+            { text: "Người ghi chép, tổ chức thông tin", type: "conventional" },
+            {
+              text: "Người lãnh đạo, phân công công việc",
+              type: "enterprising",
+            },
+            { text: "Người hòa giải, kết nối mọi người", type: "social" },
+            {
+              text: "Người thực thi, làm các công việc cụ thể",
+              type: "realistic",
+            },
+            { text: "Người phân tích, đánh giá vấn đề", type: "investigative" },
+            { text: "Người sáng tạo, đề xuất ý tưởng mới", type: "artistic" },
+          ],
+        },
+        {
+          question: "Bạn thích loại sách nào nhất?",
+          options: [
+            {
+              text: "Sách hướng dẫn, sổ tay hoặc tài liệu kỹ thuật",
+              type: "conventional",
+            },
+            {
+              text: "Sách về kinh doanh, lãnh đạo hoặc tiểu sử người thành công",
+              type: "enterprising",
+            },
+            {
+              text: "Sách về mối quan hệ, tâm lý hoặc phát triển bản thân",
+              type: "social",
+            },
+            {
+              text: "Sách hướng dẫn thủ công, sửa chữa hoặc nấu ăn",
+              type: "realistic",
+            },
+            {
+              text: "Sách khoa học, lịch sử hoặc khám phá",
+              type: "investigative",
+            },
+            {
+              text: "Tiểu thuyết, thơ hoặc sách về nghệ thuật",
+              type: "artistic",
+            },
+          ],
+        },
+        {
+          question: "Bạn xử lý thông tin mới như thế nào?",
+          options: [
+            {
+              text: "Phân loại và sắp xếp thông tin một cách hệ thống",
+              type: "conventional",
+            },
+            {
+              text: "Tìm cách ứng dụng thông tin để đạt mục tiêu",
+              type: "enterprising",
+            },
+            {
+              text: "Chia sẻ thông tin với người khác và thảo luận",
+              type: "social",
+            },
+            {
+              text: "Thử nghiệm trực tiếp với thông tin mới",
+              type: "realistic",
+            },
+            {
+              text: "Phân tích kỹ lưỡng và đặt câu hỏi về thông tin",
+              type: "investigative",
+            },
+            {
+              text: "Liên tưởng thông tin với các ý tưởng sáng tạo",
+              type: "artistic",
+            },
+          ],
+        },
+        {
+          question: "Khi gặp khó khăn, phản ứng đầu tiên của bạn là gì?",
+          options: [
+            {
+              text: "Tìm kiếm hướng dẫn hoặc quy trình có sẵn",
+              type: "conventional",
+            },
+            {
+              text: "Tìm kiếm sự hỗ trợ từ những người có ảnh hưởng",
+              type: "enterprising",
+            },
+            { text: "Tìm kiếm sự giúp đỡ từ người khác", type: "social" },
+            {
+              text: "Thử các phương pháp thực tế khác nhau",
+              type: "realistic",
+            },
+            {
+              text: "Phân tích nguyên nhân và tìm giải pháp logic",
+              type: "investigative",
+            },
+            {
+              text: "Tưởng tượng các cách tiếp cận sáng tạo",
+              type: "artistic",
+            },
+          ],
+        },
+        {
+          question: "Bạn đánh giá cao điều gì nhất ở đồng nghiệp?",
+          options: [
+            {
+              text: "Sự chính xác, đáng tin cậy và tuân thủ quy định",
+              type: "conventional",
+            },
+            {
+              text: "Sự quyết đoán, tham vọng và khả năng lãnh đạo",
+              type: "enterprising",
+            },
+            { text: "Sự hỗ trợ, hợp tác và thấu hiểu", type: "social" },
+            {
+              text: "Kỹ năng thực hành và khả năng giải quyết vấn đề thực tế",
+              type: "realistic",
+            },
+            {
+              text: "Kiến thức sâu rộng và tư duy phân tích",
+              type: "investigative",
+            },
+            { text: "Sự sáng tạo, độc đáo và trực giác", type: "artistic" },
+          ],
+        },
+        {
+          question: "Bạn thích loại dự án nào nhất?",
+          options: [
+            {
+              text: "Dự án có quy trình rõ ràng và kết quả dự đoán được",
+              type: "conventional",
+            },
+            {
+              text: "Dự án có tính cạnh tranh và cơ hội thăng tiến",
+              type: "enterprising",
+            },
+            { text: "Dự án mang lại lợi ích cho cộng đồng", type: "social" },
+            {
+              text: "Dự án tạo ra sản phẩm cụ thể, hữu hình",
+              type: "realistic",
+            },
+            {
+              text: "Dự án nghiên cứu, khám phá kiến thức mới",
+              type: "investigative",
+            },
+            {
+              text: "Dự án cho phép thể hiện ý tưởng độc đáo",
+              type: "artistic",
+            },
+          ],
+        },
+        {
+          question: "Bạn học tốt nhất bằng cách nào?",
+          options: [
+            {
+              text: "Theo hướng dẫn từng bước và thực hành lặp lại",
+              type: "conventional",
+            },
+            { text: "Thông qua cạnh tranh và thử thách", type: "enterprising" },
+            {
+              text: "Thông qua thảo luận và hợp tác với người khác",
+              type: "social",
+            },
+            { text: "Thông qua thực hành trực tiếp", type: "realistic" },
+            {
+              text: "Thông qua nghiên cứu độc lập và phân tích",
+              type: "investigative",
+            },
+            {
+              text: "Thông qua khám phá và thử nghiệm sáng tạo",
+              type: "artistic",
+            },
+          ],
+        },
+        {
+          question: "Điều gì làm bạn cảm thấy mệt mỏi trong công việc?",
+          options: [
+            {
+              text: "Sự thiếu tổ chức và không theo quy trình",
+              type: "conventional",
+            },
+            {
+              text: "Thiếu cơ hội thăng tiến và phát triển",
+              type: "enterprising",
+            },
+            {
+              text: "Làm việc cô lập, ít tương tác với người khác",
+              type: "social",
+            },
+            {
+              text: "Công việc trừu tượng, không có kết quả cụ thể",
+              type: "realistic",
+            },
+            {
+              text: "Công việc lặp đi lặp lại, không có thách thức trí tuệ",
+              type: "investigative",
+            },
+            {
+              text: "Công việc cứng nhắc, ít không gian sáng tạo",
+              type: "artistic",
+            },
+          ],
+        },
+        {
+          question: "Bạn đưa ra quyết định như thế nào?",
+          options: [
+            {
+              text: "Dựa trên dữ liệu, quy tắc và tiền lệ",
+              type: "conventional",
+            },
+            {
+              text: "Dựa trên cơ hội và lợi ích tiềm năng",
+              type: "enterprising",
+            },
+            { text: "Dựa trên tác động đến người khác", type: "social" },
+            {
+              text: "Dựa trên tính khả thi và kết quả thực tế",
+              type: "realistic",
+            },
+            {
+              text: "Dựa trên phân tích logic và bằng chứng",
+              type: "investigative",
+            },
+            { text: "Dựa trên trực giác và giá trị cá nhân", type: "artistic" },
+          ],
+        },
+        {
+          question: "Bạn muốn đóng góp điều gì cho thế giới?",
+          options: [
+            { text: "Sự ổn định, trật tự và hiệu quả", type: "conventional" },
+            {
+              text: "Sự đổi mới, tăng trưởng và phát triển",
+              type: "enterprising",
+            },
+            { text: "Sự hỗ trợ, chăm sóc và kết nối", type: "social" },
+            {
+              text: "Giải pháp thực tế và sản phẩm hữu ích",
+              type: "realistic",
+            },
+            {
+              text: "Kiến thức mới và hiểu biết sâu sắc",
+              type: "investigative",
+            },
+            { text: "Cái đẹp, cảm hứng và sự sáng tạo", type: "artistic" },
+          ],
+        },
+      ];
+
+      // Career suggestions data
+      const careerSuggestions = {
+        conventional: [
+          {
+            name: "Kế Toán",
+            icon: "fas fa-calculator",
+            description: "Quản lý tài chính, sổ sách và báo cáo",
+          },
+          {
+            name: "Quản Trị Văn Phòng",
+            icon: "fas fa-clipboard-list",
+            description: "Tổ chức và điều phối hoạt động văn phòng",
+          },
+          {
+            name: "Thủ Thư",
+            icon: "fas fa-book",
+            description: "Phân loại, sắp xếp và quản lý tài liệu",
+          },
+          {
+            name: "Kiểm Toán",
+            icon: "fas fa-chart-bar",
+            description: "Kiểm tra và đánh giá hồ sơ tài chính",
+          },
+        ],
+        enterprising: [
+          {
+            name: "Quản Lý Kinh Doanh",
+            icon: "fas fa-briefcase",
+            description: "Lãnh đạo đội ngũ và phát triển chiến lược",
+          },
+          {
+            name: "Luật Sư",
+            icon: "fas fa-gavel",
+            description: "Tư vấn và bảo vệ quyền lợi pháp lý",
+          },
+          {
+            name: "Nhân Viên Sales",
+            icon: "fas fa-handshake",
+            description: "Thuyết phục khách hàng và đạt doanh số",
+          },
+          {
+            name: "Chính Trị Gia",
+            icon: "fas fa-landmark",
+            description: "Vận động và lãnh đạo trong lĩnh vực chính trị",
+          },
+        ],
+        social: [
+          {
+            name: "Giáo Viên",
+            icon: "fas fa-chalkboard-teacher",
+            description: "Truyền đạt kiến thức và hướng dẫn người học",
+          },
+          {
+            name: "Bác Sĩ",
+            icon: "fas fa-user-md",
+            description: "Chẩn đoán và điều trị bệnh tật",
+          },
+          {
+            name: "Nhân Viên Tư Vấn",
+            icon: "fas fa-comments",
+            description: "Hỗ trợ và tư vấn giải quyết vấn đề",
+          },
+          {
+            name: "Công Tác Xã Hội",
+            icon: "fas fa-hands-helping",
+            description: "Hỗ trợ cộng đồng và cá nhân gặp khó khăn",
+          },
+        ],
+        realistic: [
+          {
+            name: "Kỹ Sư Cơ Khí",
+            icon: "fas fa-cogs",
+            description: "Thiết kế và bảo trì hệ thống máy móc",
+          },
+          {
+            name: "Kiến Trúc Sư",
+            icon: "fas fa-ruler-combined",
+            description: "Thiết kế và giám sát xây dựng công trình",
+          },
+          {
+            name: "Kỹ Thuật Viên",
+            icon: "fas fa-tools",
+            description: "Sửa chữa và bảo trì thiết bị",
+          },
+          {
+            name: "Nông Dân",
+            icon: "fas fa-tractor",
+            description: "Trồng trọt và chăn nuôi",
+          },
+        ],
+        investigative: [
+          {
+            name: "Nhà Khoa Học",
+            icon: "fas fa-flask",
+            description: "Nghiên cứu và khám phá kiến thức mới",
+          },
+          {
+            name: "Bác Sĩ",
+            icon: "fas fa-stethoscope",
+            description: "Chẩn đoán và nghiên cứu bệnh lý",
+          },
+          {
+            name: "Nhà Phân Tích Dữ Liệu",
+            icon: "fas fa-chart-line",
+            description: "Phân tích và diễn giải dữ liệu",
+          },
+          {
+            name: "Kỹ Sư Phần Mềm",
+            icon: "fas fa-laptop-code",
+            description: "Phát triển và tối ưu hóa phần mềm",
+          },
+        ],
+        artistic: [
+          {
+            name: "Nhà Thiết Kế",
+            icon: "fas fa-palette",
+            description: "Sáng tạo hình ảnh và sản phẩm thẩm mỹ",
+          },
+          {
+            name: "Nhà Văn",
+            icon: "fas fa-pen-fancy",
+            description: "Sáng tác văn học và nội dung",
+          },
+          {
+            name: "Nhạc Sĩ",
+            icon: "fas fa-music",
+            description: "Sáng tác và biểu diễn âm nhạc",
+          },
+          {
+            name: "Đạo Diễn",
+            icon: "fas fa-film",
+            description: "Sáng tạo và chỉ đạo sản xuất phim",
+          },
+        ],
+      };
+
+      // Type descriptions
+      const typeDescriptions = {
+        conventional:
+          "Bạn là người có tổ chức, thích làm việc với dữ liệu và thông tin. Bạn làm việc tốt trong môi trường có cấu trúc rõ ràng và đánh giá cao sự ổn định.",
+        enterprising:
+          "Bạn là người năng động, thích lãnh đạo và thuyết phục người khác. Bạn có khả năng nhìn thấy cơ hội và sẵn sàng chấp nhận rủi ro để đạt được mục tiêu.",
+        social:
+          "Bạn là người hướng ngoại, thích làm việc với con người và giúp đỡ người khác. Bạn có khả năng giao tiếp tốt và dễ dàng tạo dựng mối quan hệ.",
+        realistic:
+          "Bạn là người thực tế, thích làm việc với công cụ, máy móc và vật liệu. Bạn có kỹ năng thực hành tốt và thích tạo ra sản phẩm cụ thể.",
+        investigative:
+          "Bạn là người tò mò, thích phân tích và nghiên cứu. Bạn có khả năng tư duy logic và thích giải quyết các vấn đề phức tạp.",
+        artistic:
+          "Bạn là người sáng tạo, thích thể hiện bản thân thông qua nghệ thuật. Bạn có trí tưởng tượng phong phú và thích làm việc trong môi trường tự do.",
+      };
+
+      // DOM elements
+      const introSection = document.getElementById("intro");
+      const quizSection = document.getElementById("quiz");
+      const resultSection = document.getElementById("result");
+      const startBtn = document.getElementById("startBtn");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const restartBtn = document.getElementById("restartBtn");
+      const currentQuestionEl = document.getElementById("currentQuestion");
+      const totalQuestionsEl = document.getElementById("totalQuestions");
+      const questionEl = document.getElementById("question");
+      const optionsEl = document.getElementById("options");
+      const progressEl = document.getElementById("progress");
+      const selectionInfoEl = document.getElementById("selectionInfo");
+      const selectedCountEl = document.getElementById("selectedCount");
+      const resultDescriptionEl = document.getElementById("resultDescription");
+      const resultChartEl = document.getElementById("resultChart");
+      const resultTypesEl = document.getElementById("resultTypes");
+      const careerSuggestionsEl = document.getElementById("careerSuggestions");
+
+      // Quiz state
+      let currentQuestion = 0;
+      let answers = [];
+      let scores = {
+        conventional: 0,
+        enterprising: 0,
+        social: 0,
+        realistic: 0,
+        investigative: 0,
+        artistic: 0,
+      };
+
+      // Initialize quiz
+      function initQuiz() {
+        totalQuestionsEl.textContent = questions.length;
+        // Initialize answers array with empty arrays for each question
+        answers = Array(questions.length)
+          .fill()
+          .map(() => []);
+        updateProgress();
+        showQuestion();
+      }
+
+      // Show current question
+      function showQuestion() {
+        const question = questions[currentQuestion];
+        currentQuestionEl.textContent = currentQuestion + 1;
+        questionEl.textContent = question.question;
+
+        // Update selection info
+        updateSelectionInfo();
+
+        optionsEl.innerHTML = "";
+        question.options.forEach((option, index) => {
+          const optionEl = document.createElement("div");
+          optionEl.className = "option";
+          if (answers[currentQuestion].includes(index)) {
+            optionEl.classList.add("selected");
+          }
+
+          const optionNumber = document.createElement("div");
+          optionNumber.className = "option-number";
+          optionNumber.textContent = index + 1;
+
+          const optionText = document.createElement("div");
+          optionText.className = "option-text";
+          optionText.textContent = option.text;
+
+          optionEl.appendChild(optionNumber);
+          optionEl.appendChild(optionText);
+          optionEl.addEventListener("click", () => selectOption(index));
+          optionsEl.appendChild(optionEl);
+        });
+
+        updateNavigation();
+      }
+
+      // Update selection info
+      function updateSelectionInfo() {
+        const selectedCount = answers[currentQuestion].length;
+        selectedCountEl.textContent = selectedCount;
+
+        // Change color based on selection count
+        if (selectedCount === 3) {
+          selectionInfoEl.style.color = "var(--secondary)";
+          selectionInfoEl.style.fontWeight = "bold";
+        } else {
+          selectionInfoEl.style.color = "var(--dark)";
+          selectionInfoEl.style.fontWeight = "normal";
+        }
+      }
+
+      // Select an option
+      function selectOption(index) {
+        const currentAnswers = answers[currentQuestion];
+
+        if (currentAnswers.includes(index)) {
+          // If already selected, remove it
+          const optionIndex = currentAnswers.indexOf(index);
+          currentAnswers.splice(optionIndex, 1);
+        } else {
+          // If not selected and we have less than 3, add it
+          if (currentAnswers.length < 3) {
+            currentAnswers.push(index);
+          }
+        }
+
+        showQuestion();
+      }
+
+      // Update navigation buttons
+      function updateNavigation() {
+        prevBtn.disabled = currentQuestion === 0;
+
+        if (currentQuestion === questions.length - 1) {
+          nextBtn.textContent = "Xem Kết Quả";
+        } else {
+          nextBtn.textContent = "Câu tiếp theo";
+        }
+      }
+
+      // Update progress bar
+      function updateProgress() {
+        const progress = ((currentQuestion + 1) / questions.length) * 100;
+        progressEl.style.width = `${progress}%`;
+      }
+
+      // Calculate results
+      function calculateResults() {
+        // Check if all questions have at least one answer
+        const isComplete = answers.every((answer) => answer.length > 0);
+
+        if (!isComplete) {
+          alert("Vui lòng trả lời tất cả các câu hỏi trước khi xem kết quả!");
+          return;
+        }
+
+        // Reset scores
+        scores = {
+          conventional: 0,
+          enterprising: 0,
+          social: 0,
+          realistic: 0,
+          investigative: 0,
+          artistic: 0,
+        };
+
+        // Calculate scores
+        answers.forEach((answerIndices, questionIndex) => {
+          answerIndices.forEach((answerIndex) => {
+            const option = questions[questionIndex].options[answerIndex];
+            scores[option.type]++;
+          });
+        });
+
+        // Convert to percentages
+        const totalSelections = answers.reduce(
+          (total, answer) => total + answer.length,
+          0
+        );
+        Object.keys(scores).forEach((key) => {
+          scores[key] = Math.round((scores[key] / totalSelections) * 100);
+        });
+
+        displayResults();
+      }
+
+      // Display results
+      function displayResults() {
+        // Sort scores from highest to lowest
+        const sortedScores = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+
+        // Create chart
+        resultChartEl.innerHTML = "";
+        const typeNames = {
+          conventional: "C",
+          enterprising: "E",
+          social: "S",
+          realistic: "R",
+          investigative: "I",
+          artistic: "A",
+        };
+
+        const typeFullNames = {
+          conventional: "Nghiệp vụ",
+          enterprising: "Kinh doanh",
+          social: "Xã hội",
+          realistic: "Kỹ thuật",
+          investigative: "Nghiên cứu",
+          artistic: "Nghệ thuật",
+        };
+
+        sortedScores.forEach(([type, score]) => {
+          const barContainer = document.createElement("div");
+          barContainer.style.display = "flex";
+          barContainer.style.flexDirection = "column";
+          barContainer.style.alignItems = "center";
+          barContainer.style.height = "100%";
+
+          const bar = document.createElement("div");
+          bar.className = "chart-bar";
+          bar.style.height = "0%"; // Start at 0 for animation
+
+          const value = document.createElement("div");
+          value.className = "chart-value";
+          value.textContent = `${score}%`;
+
+          const label = document.createElement("div");
+          label.className = "chart-label";
+          label.textContent = typeNames[type];
+          label.title = typeFullNames[type];
+
+          bar.appendChild(value);
+          barContainer.appendChild(bar);
+          barContainer.appendChild(label);
+          resultChartEl.appendChild(barContainer);
+
+          // Animate the bar
+          setTimeout(() => {
+            bar.style.height = `${score}%`;
+          }, 300);
+        });
+
+        // Display result types
+        resultTypesEl.innerHTML = "";
+        sortedScores.forEach(([type, score], index) => {
+          const resultTypeEl = document.createElement("div");
+          resultTypeEl.className = "result-type";
+
+          const typeHeader = document.createElement("div");
+          typeHeader.className = "result-type-header";
+
+          const typeName = document.createElement("div");
+          typeName.className = "result-type-name";
+          typeName.textContent = `${index + 1}. ${typeFullNames[type]} (${
+            typeNames[type]
+          })`;
+
+          const typeScore = document.createElement("div");
+          typeScore.className = "result-type-score";
+          typeScore.textContent = `${score}%`;
+
+          const typeDescription = document.createElement("div");
+          typeDescription.className = "result-type-description";
+          typeDescription.textContent = typeDescriptions[type];
+
+          typeHeader.appendChild(typeName);
+          typeHeader.appendChild(typeScore);
+          resultTypeEl.appendChild(typeHeader);
+          resultTypeEl.appendChild(typeDescription);
+          resultTypesEl.appendChild(resultTypeEl);
+        });
+
+        // Display career suggestions for top 3 types
+        careerSuggestionsEl.innerHTML = "";
+        const topTypes = sortedScores.slice(0, 3);
+
+        topTypes.forEach(([type, score]) => {
+          const careers = careerSuggestions[type];
+          careers.forEach((career) => {
+            const careerCard = document.createElement("div");
+            careerCard.className = "career-card";
+
+            const careerIcon = document.createElement("div");
+            careerIcon.className = "career-icon";
+            careerIcon.innerHTML = `<i class="${career.icon}"></i>`;
+
+            const careerName = document.createElement("div");
+            careerName.className = "career-name";
+            careerName.textContent = career.name;
+
+            const careerDescription = document.createElement("div");
+            careerDescription.className = "career-description";
+            careerDescription.textContent = career.description;
+
+            careerCard.appendChild(careerIcon);
+            careerCard.appendChild(careerName);
+            careerCard.appendChild(careerDescription);
+            careerSuggestionsEl.appendChild(careerCard);
+          });
+        });
+
+        // Show result section
+        quizSection.style.display = "none";
+        resultSection.style.display = "block";
+      }
+
+      // Event listeners
+      startBtn.addEventListener("click", () => {
+        introSection.style.display = "none";
+        quizSection.style.display = "block";
+        initQuiz();
+      });
+
+      prevBtn.addEventListener("click", () => {
+        if (currentQuestion > 0) {
+          currentQuestion--;
+          updateProgress();
+          showQuestion();
+        }
+      });
+
+      nextBtn.addEventListener("click", () => {
+        if (currentQuestion < questions.length - 1) {
+          currentQuestion++;
+          updateProgress();
+          showQuestion();
+        } else {
+          calculateResults();
+        }
+      });
+
+      restartBtn.addEventListener("click", () => {
+        currentQuestion = 0;
+        answers = [];
+        resultSection.style.display = "none";
+        introSection.style.display = "block";
+      });
+    </script>
+  </body>
+</html>
